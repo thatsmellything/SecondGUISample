@@ -3,6 +3,8 @@ package controller;
 
 import model.Dwight;
 import view.*;
+import view.Frame;
+import view.Panel;
 
 
 public class GUIController
@@ -13,9 +15,9 @@ public class GUIController
 
 	public GUIController()
 	{
-		myDwight = new Dwight();
-		appFrame = new Frame(this);
-		appLayout = new Panel(this);
+		this.myDwight = new Dwight();
+		this.appFrame = new Frame(this);
+		this.appLayout = new Panel(this);
 	}
 	
 	public void start()
