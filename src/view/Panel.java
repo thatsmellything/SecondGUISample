@@ -17,13 +17,17 @@ public class Panel extends JPanel
 	public Panel(GUIController appController)
 	{
 		super();
+		
 		this.appController = appController;
-		
-		
-		myButton = new JButton("Click to change the color");
+		myButton = new JButton("CLICK!");
 		myLabel = new JLabel("This is a color app");
+		appLayout = new SpringLayout();
+		appLayout.putConstraint(SpringLayout.NORTH, myButton, 151, SpringLayout.NORTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, myButton, -96, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.WEST, myLabel, 188, SpringLayout.WEST, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, myLabel, -54, SpringLayout.NORTH, myButton);
 		
-		
+	
 		setupPanel();
 		setupLayout();
 		setupListeners();
@@ -31,15 +35,16 @@ public class Panel extends JPanel
 	
 	private void setupPanel()
 	{
-		this.setBackground(Color.BLUE);
-		this.add(myButton);
+		this.setLayout(appLayout);
 		this.add(myLabel);
+		this.add(myButton);
 		
+		this.setBackground(Color.BLUE);
 	}
 	
 	private void setupLayout()
 	{
-		
+		appLayout.putConstraint(SpringLayout.WEST, myButton, 201, SpringLayout.WEST, this);
 	}
 	
 	private void setupListeners()
